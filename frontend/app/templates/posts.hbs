@@ -1,0 +1,5 @@
+{{#link-to "post.new"}}New post{{/link-to}}
+{{#each model as |post|}}
+  {{post-display post=post}}
+{{/each}}
+{{outlet}}

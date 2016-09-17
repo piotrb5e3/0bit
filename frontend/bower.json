@@ -2,6 +2,12 @@
   "name": "frontend",
   "dependencies": {
     "ember": "~2.8.0",
-    "ember-cli-shims": "0.1.1"
+    "ember-cli-shims": "0.1.1",
+    "bootstrap": "~3.3.5",
+    "pretender": "~1.1.0",
+    "Faker": "~3.1.0",
+    "markdown-it": "^8.0.0",
+    "marked": "^0.3.6",
+    "bootbox": "^4.4.0"
   }
 }
