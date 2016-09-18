@@ -14,10 +14,17 @@
       {{#bs-navbar-content}}
         {{#bs-navbar-nav}}
           {{#bs-nav-item}}{{#link-to "posts"}}Blog{{/link-to}}{{/bs-nav-item}}
-          {{#bs-nav-item}}{{#link-to "post.new"}}New post{{/link-to}}{{/bs-nav-item}}
+          {{#if session.isAuthenticated}}
+            {{#bs-nav-item}}{{#link-to "post.new"}}New post{{/link-to}}{{/bs-nav-item}}
+          {{/if}}
           {{#each staticpages as |page|}}
             {{#bs-nav-item}}{{#link-to page.link}}{{page.name}}{{/link-to}}{{/bs-nav-item}}
           {{/each}}
+          {{#if session.isAuthenticated}}
+            {{#bs-nav-item}}<a {{action 'invalidateSession'}}>Logout</a>{{/bs-nav-item}}
+          {{else}}
+            {{#bs-nav-item}}{{#link-to 'login'}}Login{{/link-to}}{{/bs-nav-item}}
+          {{/if}}
         {{/bs-navbar-nav}}
       {{/bs-navbar-content}}
     </nav>
@@ -27,6 +34,6 @@
     {{outlet}}
   </main>
 </div>
-<footer class="footer">
+<footer class="footer container">
   {{site-footer}}
 </footer>

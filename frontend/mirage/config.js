@@ -1,3 +1,5 @@
+import { Response } from 'ember-cli-mirage';
+
 export default function() {
 
   // These comments are here to help you get started. Feel free to delete them.
@@ -27,4 +29,21 @@ export default function() {
   this.get('/posts/:id');
   this.post('/posts');
   this.patch('/posts/:id');
+
+  this.post('/login', function(db, request) {
+    var pass = request.requestBody;
+    pass = pass.substring(pass.indexOf("password="));
+    pass = pass.substring(pass.indexOf("=") + 1);
+    if (pass === "failme") {
+      return new Response(400, {error: 'password or username not correct'});
+    } else {
+      return {
+        token: 12341234
+      };
+    }
+  });
+
+  this.get('/logout', () => {
+    return new Response(200);
+  });
 }
