@@ -1,0 +1,11 @@
+<h4>
+  {{post.title}}
+    <br>
+    <small>
+        Posted: <time>{{moment-calendar post.date}}</time>
+        {{#if session.isAuthenticated}}
+          {{#link-to "post.edit" post}}edit{{/link-to}}
+        {{/if}}
+    </small>
+</h4>
+{{yield}}

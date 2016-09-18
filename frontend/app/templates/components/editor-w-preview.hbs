@@ -1,0 +1,14 @@
+{{#bs-form formLayout="horizontal" model=this action=(action submit)}}
+  {{#bs-tab}}
+    {{#bs-tab-pane title="Edit"}}
+      {{bs-form-element controlType="text" label="Title" placeholder="Title" property="title"}}
+      {{bs-form-element controlType="textarea" label="Content" placeholder="..." property="contents"}}
+      {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+    {{/bs-tab-pane}}
+    {{#bs-tab-pane title="Preview"}}
+      {{post-display post=newpost}}
+      {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+    {{/bs-tab-pane}}
+  {{/bs-tab}}
+{{/bs-form}}
+{{yield}}
