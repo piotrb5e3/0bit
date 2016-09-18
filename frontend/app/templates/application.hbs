@@ -1,4 +1,4 @@
-<div id="container">
+<div class="container">
   <header>
     {{#bs-navbar}}
       <div class="navbar-header">
@@ -14,6 +14,7 @@
       {{#bs-navbar-content}}
         {{#bs-navbar-nav}}
           {{#bs-nav-item}}{{#link-to "posts"}}Blog{{/link-to}}{{/bs-nav-item}}
+          {{#bs-nav-item}}{{#link-to "post.new"}}New post{{/link-to}}{{/bs-nav-item}}
           {{#each staticpages as |page|}}
             {{#bs-nav-item}}{{#link-to page.link}}{{page.name}}{{/link-to}}{{/bs-nav-item}}
           {{/each}}
@@ -26,3 +27,6 @@
     {{outlet}}
   </main>
 </div>
+<footer class="footer">
+  {{site-footer}}
+</footer>

@@ -1,5 +1,9 @@
-<h5>
+<h4>
   {{post.title}}
-</h5>
-Posted: <time>{{moment-calendar post.date}}</time>
+    <br>
+    <small>
+        Posted: <time>{{moment-calendar post.date}}</time>
+        {{#link-to "post.edit" post}}edit{{/link-to}}
+    </small>
+</h4>
 {{yield}}

@@ -4,8 +4,8 @@ export default Factory.extend({
   title(){
     return faker.company.bs();
   },
-  contents() {
-    return faker.lorem.paragraph();
+  contents(i) {
+    return faker.lorem.paragraphs(i%5 + 1);
   },
   date(i) {
     if ( i%2 === 0) {

@@ -1,4 +1,4 @@
-{{#bs-form formLayout="horizontal" model=this action="submit"}}
+{{#bs-form formLayout="horizontal" model=this action=(action submit)}}
   {{#bs-tab}}
     {{#bs-tab-pane title="Edit"}}
       {{bs-form-element controlType="text" label="Title" placeholder="Title" property="title"}}

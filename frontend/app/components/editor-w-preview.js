@@ -4,7 +4,6 @@ import EmberValidations from 'ember-validations';
 export default Ember.Component.extend(EmberValidations, {
   title: "",
   contents: "",
-  date: new Date(),
   validations: {
     title: {
       presence: true,
@@ -19,11 +18,11 @@ export default Ember.Component.extend(EmberValidations, {
       }
     }
   },
-  newpostObserver: Ember.observer('title', 'contents', 'date', function(){
-    this.set('newpost',{
+  newpost: Ember.computed('title', 'contents', function(){
+    return {
       title: this.get('title'),
       contents: this.get('contents'),
-      date: this.get('date')
-    });
+      date: new Date()
+    };
   })
 });
