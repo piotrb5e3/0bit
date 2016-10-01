@@ -1,12 +1,20 @@
 import Ember from 'ember';
 import Base from 'ember-simple-auth/authenticators/base';
+import ENV from 'frontend/config/environment';
 
 export default Base.extend({
   ajax: Ember.inject.service(),
-  loginPath: "api/login",
-  logoutPath: "api/logout",
+  loginPath: ENV.apiHost + "/" + ENV.apiNamespace + "/auth/login/",
+  logoutPath: ENV.apiHost + "/" + ENV.apiNamespace + "/auth/logout",
+  refreshPath: ENV.apiHost + "/" + ENV.apiNamespace + "/auth/refresh",
 
-  restore() {
+  restore(data) {
+    return this.get('ajax').request(this.get("refreshPath"), {
+      method: 'POST',
+      data: {
+        token: data.token
+      }
+    });
   },
 
   authenticate(login, pass) {
@@ -21,7 +29,7 @@ export default Base.extend({
 
   invalidate() {
     return this.get('ajax').request(this.get("logoutPath"), {
-      method: 'GET'
+      method: 'POST'
     });
   }
 });

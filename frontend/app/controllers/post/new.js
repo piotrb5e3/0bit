@@ -8,11 +8,10 @@ export default Ember.Controller.extend({
         this.transitionToRoute("login");
       }
       let self = this;
-      this.get('store').createRecord('post', {
-        title: newpost.title,
-        contents: newpost.contents,
-        date: new Date()
-      }).save().then(function success(){
+      let record = this.get('store').createRecord('post');
+      record.set("title", newpost.title);
+      record.set("contents", newpost.contents);
+      record.save().then(function success(){
         self.transitionToRoute("posts");
       }, function error(desc) {
         alert("Save failed:\n" + desc);
