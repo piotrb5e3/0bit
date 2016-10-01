@@ -4,9 +4,9 @@ import ENV from 'frontend/config/environment';
 
 export default Base.extend({
   ajax: Ember.inject.service(),
-  loginPath: ENV.apiHost + "/" + ENV.apiNamespace + "/auth/login/",
-  logoutPath: ENV.apiHost + "/" + ENV.apiNamespace + "/auth/logout",
-  refreshPath: ENV.apiHost + "/" + ENV.apiNamespace + "/auth/refresh",
+  loginPath: ENV.API_HOST + "/" + ENV.API_NAMESPACE + "/auth/login/",
+  logoutPath: ENV.API_HOST + "/" + ENV.API_NAMESPACE + "/auth/logout/",
+  refreshPath: ENV.API_HOST + "/" + ENV.API_NAMESPACE + "/auth/refresh/",
 
   restore(data) {
     return this.get('ajax').request(this.get("refreshPath"), {
