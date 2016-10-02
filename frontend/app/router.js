@@ -15,6 +15,7 @@ Router.map(function() {
     this.route('edit', { path: ":post_id/edit" });
   });
   this.route('login');
+  this.route('error', { path: '/*wildcard' });
 });
 
 export default Router;
