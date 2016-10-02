@@ -266,6 +266,47 @@ footer .panel-default {
 }
 
 /*
+ Login page styling
+*/
+.login-panel {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  .btn-primary {
+    border-color: $submitBorder;
+    background-color: $submitBg;
+    color: $submitColor;
+    &:hover, &:focus {
+      background-color: $submitHighlightBg;
+      color: $submitHighlightColor;
+    }
+  }
+  /* enable absolute positioning */
+  .inner-addon {
+    position: relative;
+  }
+
+  /* style icon */
+  .inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+  }
+
+  /* align icon */
+  .left-addon .glyphicon  { left:  0px;}
+
+  /* add padding  */
+  .left-addon input  { padding-left:  30px; }
+}
+
+@media (max-width: 767px) {
+  .login-panel {
+    max-width: 100%;
+  }
+}
+
+/*
  Misc
 */
 .panel-body p {

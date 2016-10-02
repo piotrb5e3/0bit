@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
-
+  identification: "",
+  password: "",
   actions: {
     authenticate() {
       let { identification, password } = this.getProperties('identification', 'password');
