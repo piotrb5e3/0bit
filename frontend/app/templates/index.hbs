@@ -1,1 +1,7 @@
+<div class="panel panel-default">
+  {{#each model as |page|}}
+    {{page-title page=page}}
+    {{page-body page=page}}
+  {{/each}}
+</div>
 {{outlet}}
