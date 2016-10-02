@@ -1,0 +1,277 @@
+@import 'https://fonts.googleapis.com/css?family=Noto+Sans';
+@import 'https://fonts.googleapis.com/css?family=Press+Start+2P';
+@import 'https://fonts.googleapis.com/css?family=Stalinist+One';
+@import 'https://fonts.googleapis.com/css?family=Audiowide';
+
+/*
+  Fonts
+*/
+
+$font-novelty: 'Audiowide', sans-serif;
+$font-novelty2: 'Stalinist One', sans-serif;
+$font-sans: 'Noto Sans', 'Arial', sans-serif;
+$font-serif: 'Artifika', serif;
+
+/* Coolors Exported Palette - coolors.co/eee2df-eed7c5-c89f9c-c97c5d-b36a5e */
+
+/* RGB */
+$color1: rgba(238, 226, 223, 1) !important;
+$color2: rgba(238, 215, 197, 1) !important;
+$color3: rgba(200, 159, 156, 1) !important;
+$color4: rgba(201, 124, 93, 1) !important;
+$color5: rgba(179, 106, 94, 1) !important;
+
+$color-dark: #42253B !important;
+
+$color-dummy: #fff !important;
+
+$bgDefault: $color5;
+$bgHighlight: $color4;
+$colDefault: $color2;
+$colHighlight: $color-dark;
+$dropDown: true;
+
+$postBorder: $color4;
+$postHeadBg: $color4;
+$postHeadColor: $color2;
+$postSmallColor: $color2;
+$postEditColor: $color3;
+$postBodyBg: $color1;
+$postBodyColor: $color-dark;
+
+$editorTabBorder: $color4;
+$editorTabBg: $color4;
+$editorTabColor: $color2;
+$editorTabHighlightBg: $color3;
+$editorTabHighlightColor: $color-dark;
+
+$editorBorder: $color4;
+$editorBg: $color1;
+$editorColor: $color-dark;
+
+$submitBorder: $color4;
+$submitBg: $color4;
+$submitColor: $color2;
+$submitHighlightBg: $color3;
+$submitHighlightColor: $color-dark;
+
+$footer-link: $color3;
+$footer-link-active: $color-dark;
+
+$text-link: $color5;
+$text-link-active: $color3;
+
+body {
+  background-color: #ffffff;
+}
+
+/*
+  Post panel styling
+*/
+.panel-default {
+  border-color: $postBorder;
+  .panel-heading {
+    background-color: $postHeadBg;
+    color: $postHeadColor;
+    border-bottom-color: $postBorder;
+    h4, h3 {
+      font-family: $font-novelty;
+    }
+    small {
+      color: $postSmallColor;
+      font-family: $font-serif;
+      a {
+        color: $postEditColor;
+      }
+    }
+  }
+  .panel-body {
+    background-color: $postBodyBg;
+    color: $postBodyColor;
+    p {
+      font-family: $font-sans;
+      font-size: 15px;
+      a {
+        color: $text-link;
+        &:hover, &:active {
+          color: $text-link-active;
+        }
+      }
+    }
+  }
+}
+
+/*
+  Navbar styling
+*/
+.navbar-default {
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+  font-family: $font-novelty;
+  .navbar-brand {
+    color: $colDefault;
+    font-family: $font-novelty2;
+    &:hover, &:focus {
+      color: $colHighlight;
+    }
+  }
+  .navbar-text {
+    color: $colDefault;
+  }
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        &:hover, &:focus {
+          color: $colHighlight;
+        }
+      }
+      @if $dropDown {
+        > .dropdown-menu {
+          background-color: $bgDefault;
+          > li {
+            > a {
+              color: $colDefault;
+              &:hover, &:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight;
+              }
+            }
+            > .divider {
+              background-color: $bgHighlight;
+            }
+          }
+        }
+      }
+    }
+    @if $dropDown {
+      .open .dropdown-menu > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight;
+        }
+      }
+    }
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight;
+      }
+    }
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight;
+      }
+    }
+  }
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:focus {
+      background-color: $bgDefault;
+    }
+    &:hover {
+      background-color: $bgHighlight;
+    }
+    &.active {
+      background-color: $bgHighlight;
+      &:hover {
+        background-color: $bgDefault;
+      }
+    }
+    .icon-bar {
+      background-color: $colDefault;
+    }
+  }
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault;
+  }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu .btn-default{
+    > li > a {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight;
+      }
+    }
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight;
+      }
+    }
+  }
+}
+
+/*
+ Post editor styling
+*/
+.nav-tabs {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: $font-sans;
+  a {
+    border-color: $editorTabBorder;
+    background-color: $editorTabBg;
+    color: $editorTabColor;
+    &:hover, &:focus {
+      background-color: $editorTabHighlightBg;
+      color: $editorTabHighlightColor;
+    }
+  }
+  .active a {
+    background-color: $editorTabHighlightBg;
+    color: $editorTabHighlightColor;
+  }
+}
+
+.tab-content {
+  border-color: $editorBorder;
+  background-color: $editorBg;
+  color: $editorColor;
+  .btn-primary {
+    border-color: $submitBorder;
+    background-color: $submitBg;
+    color: $submitColor;
+    &:hover, &:focus {
+      background-color: $submitHighlightBg;
+      color: $submitHighlightColor;
+    }
+  }
+}
+
+/*
+ Footer styling
+*/
+footer .panel-default {
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+  font-family: $font-novelty;
+  color: $colDefault;
+  a {
+    color: $footer-link;
+    &:active, &:hover {
+      color: $footer-link-active;
+    }
+  }
+}
+
+/*
+ Misc
+*/
+.panel-body p {
+  white-space: pre-wrap;
+}
+
+.text-centered {
+  text-align: center;
+}
