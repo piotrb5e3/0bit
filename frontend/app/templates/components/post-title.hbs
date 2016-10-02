@@ -3,7 +3,7 @@
     <br>
     <small>
         Posted: <time>{{moment-calendar post.date}}</time>
-        {{#if session.isAuthenticated}}
+        {{#if (and session.isAuthenticated (not isPreview)) }}
           {{#link-to "post.edit" post}}edit{{/link-to}}
         {{/if}}
     </small>
