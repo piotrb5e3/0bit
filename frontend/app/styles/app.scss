@@ -294,10 +294,14 @@ footer .panel-default {
   }
 
   /* align icon */
-  .left-addon .glyphicon  { left:  0px;}
+  .left-addon .glyphicon {
+    left: 0px;
+  }
 
   /* add padding  */
-  .left-addon input  { padding-left:  30px; }
+  .left-addon input {
+    padding-left: 30px;
+  }
 }
 
 @media (max-width: 767px) {
