@@ -88,17 +88,17 @@ body {
   .panel-body {
     background-color: $postBodyBg;
     color: $postBodyColor;
-    p {
-      font-family: $font-sans;
-      font-size: 15px;
-      a {
-        color: $text-link;
-        &:hover, &:active {
-          color: $text-link-active;
-        }
+    font-family: $font-sans;
+    font-size: 15px;
+    a {
+      text-decoration: underline;
+      color: $text-link;
+      &:hover, &:active {
+        color: $text-link-active;
       }
     }
   }
+
 }
 
 /*
@@ -196,7 +196,7 @@ body {
 }
 
 @media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu .btn-default{
+  .navbar-default .navbar-nav .open .dropdown-menu .btn-default {
     > li > a {
       color: $colDefault;
       &:hover, &:focus {
@@ -307,6 +307,22 @@ footer .panel-default {
 }
 
 /*
+ Error page styling
+*/
+.err-404 {
+  text-align: center;
+  img {
+    max-width: 700px;
+    width: 100%;
+    display: inline-block;
+  }
+
+  .serifd {
+    font-family: $font-serif;
+  }
+}
+
+/*
  Misc
 */
 .panel-body p {
@@ -316,8 +332,29 @@ footer .panel-default {
 .text-centered {
   text-align: center;
 }
+
+.text-right{
+  text-align: right;
+}
+
 .loading-spinner {
   margin-left: auto;
   margin-right: auto;
   max-width: 128px;
+}
+
+.w100p {
+  width: 100%;
+}
+
+.no-expand {
+  position: absolute;
+}
+
+.no-expand-parent {
+  position: relative;
+}
+
+.inline-block {
+  display: inline-block;
 }
