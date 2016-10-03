@@ -16,6 +16,7 @@ Router.map(function() {
   });
   this.route('login');
   this.route('error', { path: '/*wildcard' });
+  this.route('loading');
 });
 
 export default Router;
