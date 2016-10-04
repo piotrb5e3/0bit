@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   actions: {
     authenticate() {
       let { identification, password } = this.getProperties('identification', 'password');
-      this.get('session').authenticate('authenticator:api-authenticator', identification, password).catch((reason) => {
+      this.get('session').authenticate('authenticator:api-authenticator', identification, password).catch(() => {
         this.set('errorMessage', 'Authentication failed');
     });
     }
