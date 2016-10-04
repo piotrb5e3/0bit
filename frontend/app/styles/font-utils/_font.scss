@@ -1,0 +1,50 @@
+@font-face {
+  font-family: '0bit-util-font';
+  src: url('/assets/font/0bit-util-font.eot?20939832');
+  src: url('/assets/font/0bit-util-font.eot?20939832#iefix') format('embedded-opentype'),
+       url('/assets/font/0bit-util-font.woff2?20939832') format('woff2'),
+       url('/assets/font/0bit-util-font.woff?20939832') format('woff'),
+       url('/assets/font/0bit-util-font.ttf?20939832') format('truetype'),
+       url('/assets/font/0bit-util-font.svg?20939832#0bit-util-font') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "0bit-util-font";
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: inherit;
+  margin-right: .2em;
+  text-align: center;
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  font-size: 120%;
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
+}
+
+.icon-lock:before { content: '\4c'; } /* 'L' */
+.icon-user:before { content: '\55'; } /* 'U' */
+.icon-pencil:before { content: '\e800'; } /* '' */
+.icon-trash-empty:before { content: '\e801'; } /* '' */
+.icon-menu:before { content: '\f0c9'; } /* '' */

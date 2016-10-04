@@ -1,7 +1,12 @@
+//Glyphicons conf import
+@import 'font-utils/font';
+@import 'font-utils/font-ie7';
+
+//Google fonts for text and logos
 @import 'https://fonts.googleapis.com/css?family=Noto+Sans';
-@import 'https://fonts.googleapis.com/css?family=Press+Start+2P';
 @import 'https://fonts.googleapis.com/css?family=Stalinist+One';
 @import 'https://fonts.googleapis.com/css?family=Audiowide';
+@import 'https://fonts.googleapis.com/css?family=Artifika';
 
 /*
   Fonts
@@ -287,15 +292,15 @@ footer .panel-default {
   }
 
   /* style icon */
-  .inner-addon .glyphicon {
+  .inner-addon .icon {
     position: absolute;
     padding: 10px;
     pointer-events: none;
   }
 
   /* align icon */
-  .left-addon .glyphicon {
-    left: 0px;
+  .left-addon .icon {
+    left: 0;
   }
 
   /* add padding  */
