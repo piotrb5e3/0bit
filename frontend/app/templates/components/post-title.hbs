@@ -1,11 +1,36 @@
-<h4>
-  {{post.title}}
-    <br>
-    <small>
-        Posted: <time>{{moment-calendar post.date}}</time>
-        {{#if (and session.isAuthenticated (not isPreview)) }}
-          {{#link-to "post.edit" post}}edit{{/link-to}}
-        {{/if}}
-    </small>
-</h4>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-8 col-sm-8">
+            <h4>
+              {{post.title}}
+                <br>
+                <small>
+                    Posted:
+                    <time>{{moment-calendar post.date}}</time>
+                </small>
+            </h4>
+        </div>
+        <div class="col-xs-4 col-sm-4 text-right">
+          {{#if (and session.isAuthenticated (not isPreview)) }}
+            {{#link-to "post.edit" post class="btn btn-primary"}}
+                <i class="icon icon-pencil"></i>
+            {{/link-to}}
+              <button {{action "askConfirm"}} class="btn btn-primary">
+                  <i class="icon icon-trash-empty"></i>
+              </button>
+          {{/if}}
+        </div>
+
+    </div>
+</div>
+{{#if openModal}}
+  {{#bs-modal title="Confirm delete" open=openModal submitAction=(action "yesDelete")
+              body=false footer=false}}
+    {{#bs-modal-body}}
+    Are you sure you want to delete &ldquo;{{post.title}}&rdquo;?
+    {{/bs-modal-body}}
+    {{bs-modal-footer closeTitle="No" submitTitle="Yes"}}
+  {{/bs-modal}}
+{{/if}}
 {{yield}}

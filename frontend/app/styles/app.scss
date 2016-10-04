@@ -89,6 +89,16 @@ body {
         color: $postEditColor;
       }
     }
+    .container-fluid {
+      margin: 0;
+      padding: 0;
+      .btn {
+        display: inline-block;
+        .icon {
+          color: $colDefault;
+        }
+      }
+    }
   }
   .panel-body {
     background-color: $postBodyBg;
