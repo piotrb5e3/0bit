@@ -171,19 +171,6 @@ body {
     }
   }
   .navbar-toggle {
-    border-color: $bgHighlight;
-    &:focus {
-      background-color: $bgDefault;
-    }
-    &:hover {
-      background-color: $bgHighlight;
-    }
-    &.active {
-      background-color: $bgHighlight;
-      &:hover {
-        background-color: $bgDefault;
-      }
-    }
     .icon-bar {
       background-color: $colDefault;
     }
@@ -328,6 +315,45 @@ footer .panel-default {
 
   .serifd {
     font-family: $font-serif;
+  }
+}
+
+/*
+ Other bootstrap
+*/
+.btn-default {
+  color: $colDefault;
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+  &:focus {
+    background-color: $bgDefault;
+  }
+  &:hover {
+    background-color: $bgHighlight;
+  }
+  &.active {
+    background-color: $bgHighlight;
+    &:hover {
+      background-color: $bgDefault;
+    }
+  }
+}
+
+.btn-primary {
+  color: $colDefault;
+  background-color: $bgHighlight;
+  border-color: $bgDefault;
+  &:focus {
+    background-color: $bgHighlight;
+  }
+  &:hover {
+    background-color: $bgDefault;
+  }
+  &.active {
+    background-color: $bgDefault;
+    &:hover {
+      background-color: $bgHighlight;
+    }
   }
 }
 
