@@ -1,5 +1,6 @@
 <div class="panel panel-default login-panel">
     <div class="panel-body">
+        <p class="text-centered">{{errorMessage}}</p>
       {{#bs-form model=this action=(action "authenticate")}}
           <div class="inner-addon left-addon">
               <i class="icon icon-user"></i>
