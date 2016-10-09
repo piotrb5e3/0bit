@@ -37,8 +37,20 @@ export default function() {
   this.get('/posts/:id');
   this.post('/posts');
   this.patch('/posts/:id');
+  this.del('/posts/:id');
 
-  this.post('/login', function(db, request) {
+  this.get('/static-pages', (schema, request) => {
+    let urlToSearchFor = request.queryParams.url;
+    if(!urlToSearchFor) {
+      return schema.staticPages.all();
+    } else {
+      return schema.db.staticPages.where({url: urlToSearchFor});
+    }
+  });
+  this.post('/static-pages');
+  this.patch('/static-pages/:id');
+
+  this.post('/auth/login', (schema, request) => {
     var pass = request.requestBody;
     pass = pass.substring(pass.indexOf("password="));
     pass = pass.substring(pass.indexOf("=") + 1);
@@ -51,7 +63,7 @@ export default function() {
     }
   });
 
-  this.get('/logout', () => {
+  this.get('/auth/logout', () => {
     return new Response(200);
   });
 }

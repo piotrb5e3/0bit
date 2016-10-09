@@ -6,8 +6,6 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
-    API_HOST: 'http://localhost:4200',
-    API_NAMESPACE: 'api',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -16,14 +14,23 @@ module.exports = function(environment) {
     },
 
     APP: {
+      API_HOST: 'http://localhost:4200',
+      API_NAMESPACE: 'api',
       // Here you can pass flags/options to your application instance
       // when it is created
     }
   };
 
   if (environment === 'development') {
-    ENV.API_HOST = 'http://localhost:8000';
-    ENV.API_NAMESPACE = 'api';
+    ENV.APP.API_HOST = 'http://localhost:8000';
+    ENV.APP.API_NAMESPACE = 'api';
+
+    //Uncomment for development with the mirage server
+    ///*
+    ENV.APP.API_HOST= 'http://localhost:4200';
+    ENV.APP.API_NAMESPACE= 'api';
+    // */
+
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;

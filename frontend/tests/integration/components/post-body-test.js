@@ -6,19 +6,11 @@ moduleForComponent('post-body', 'Integration | Component | post body', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set('post', {id: 0, title: 'Dummy title', contents: 'Some contents', date: new Date()});
 
-  this.render(hbs`{{post-body}}`);
+  this.render(hbs`{{post-body post=post}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  let resultingRender = this.$().text().trim();
 
-  // Template block usage:
-  this.render(hbs`
-    {{#post-body}}
-      template block text
-    {{/post-body}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.notEqual(resultingRender.indexOf('Some contents'), -1);
 });

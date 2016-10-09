@@ -6,19 +6,13 @@ moduleForComponent('post-title', 'Integration | Component | post title', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set('post', {id: 0, title: 'Dummy title', contents: 'Some contents', date: new Date()});
 
-  this.render(hbs`{{post-title}}`);
+  this.render(hbs`{{post-title post=post isPreview=true}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  let resultingRender = this.$().text().trim();
 
-  // Template block usage:
-  this.render(hbs`
-    {{#post-title}}
-      template block text
-    {{/post-title}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.notEqual(resultingRender.indexOf('Dummy title'), -1);
+  assert.notEqual(resultingRender.indexOf('Today'), -1);
+  assert.equal(resultingRender.indexOf('Edit'), -1);
 });

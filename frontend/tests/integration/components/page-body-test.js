@@ -6,19 +6,11 @@ moduleForComponent('page-body', 'Integration | Component | page body', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set('page', {id: 0, url:'foo', title: 'Dummy title', contents: 'Some contents'});
 
-  this.render(hbs`{{page-body}}`);
+  this.render(hbs`{{page-body page=page}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  let resultingRender = this.$().text().trim();
 
-  // Template block usage:
-  this.render(hbs`
-    {{#page-body}}
-      template block text
-    {{/page-body}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.notEqual(resultingRender.indexOf('Some contents'), -1);
 });

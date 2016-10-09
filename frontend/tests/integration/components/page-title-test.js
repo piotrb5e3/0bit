@@ -6,19 +6,11 @@ moduleForComponent('page-title', 'Integration | Component | page title', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set('page', {id: 0, url:'foo', title: 'Dummy title', contents: 'Some contents'});
 
-  this.render(hbs`{{page-title}}`);
+  this.render(hbs`{{page-title page=page}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  let resultingRender = this.$().text().trim();
 
-  // Template block usage:
-  this.render(hbs`
-    {{#page-title}}
-      template block text
-    {{/page-title}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.notEqual(resultingRender.indexOf('Dummy title'), -1);
 });

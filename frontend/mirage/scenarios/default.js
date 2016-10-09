@@ -9,4 +9,5 @@ export default function(server) {
 
   // server.createList('post', 10);
   server.createList('post', 15);
+  server.createList('staticPage', 3);
 }
