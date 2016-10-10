@@ -36,7 +36,11 @@ export default function() {
   this.get('/posts');
   this.get('/posts/:id');
   this.post('/posts');
-  this.patch('/posts/:id');
+  this.put('/posts/:id', (schema, request) => {
+    const attrs = JSON.parse(request.requestBody);
+    let post = schema.posts.find(request.params.id);
+    post.update(attrs);
+  });
   this.del('/posts/:id');
 
   this.get('/static-pages', (schema, request) => {
@@ -54,7 +58,7 @@ export default function() {
     var pass = request.requestBody;
     pass = pass.substring(pass.indexOf("password="));
     pass = pass.substring(pass.indexOf("=") + 1);
-    if (pass === "failme") {
+    if (pass.indexOf("ok") !== 0) {
       return new Response(400, {error: 'password or username not correct'});
     } else {
       return {
@@ -62,6 +66,8 @@ export default function() {
       };
     }
   });
+
+  this.post("/auth/logout", () => {});
 
   this.get('/auth/logout', () => {
     return new Response(200);

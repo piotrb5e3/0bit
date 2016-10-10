@@ -22,7 +22,9 @@
     "andThen",
     "currentURL",
     "currentPath",
-    "currentRouteName"
+    "currentRouteName",
+    "tryLogin",
+    "tryLogout"
   ],
   "node": false,
   "browser": false,
