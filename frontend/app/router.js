@@ -17,6 +17,8 @@ Router.map(function() {
   this.route('login');
   this.route('error', { path: '/*wildcard' });
   this.route('loading');
+  this.route('staticpage-new', { path: '/sp-new' });
+  this.route('staticpage-edit', { path: '/sp-edit/:staticpage_id' });
 });
 
 export default Router;

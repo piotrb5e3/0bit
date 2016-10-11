@@ -17,6 +17,7 @@ export default function() {
   this.passthrough("/posts");
   this.passthrough("/posts/:id");
   this.passthrough("/static-pages");
+  this.passthrough("/static-pages/:id");
 
   this.urlPrefix = 'http://localhost:4200';    // make this `http://localhost:8080`, for example, if your API is on a different server
   this.namespace = 'api';    // make this `api`, for example, if your API is namespaced
@@ -51,8 +52,21 @@ export default function() {
       return schema.db.staticPages.where({url: urlToSearchFor});
     }
   });
-  this.post('/static-pages');
-  this.patch('/static-pages/:id');
+
+  this.post('/static-pages', (schema, request) => {
+    let newPage = JSON.parse(request.requestBody);
+    schema.db.staticPages.insert(newPage);
+  });
+
+  this.get('/static-pages/:id', (schema, request) => {
+    return schema.db.staticPages.find(request.params.id);
+  });
+
+  this.put('/static-pages/:id', (schema, request) => {
+    const attrs = JSON.parse(request.requestBody);
+    let page = schema.staticPages.find(request.params.id);
+    page.update(attrs);
+  });
 
   this.post('/auth/login', (schema, request) => {
     var pass = request.requestBody;
