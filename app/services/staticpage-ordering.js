@@ -10,7 +10,7 @@ export default Ember.Service.extend({
   sendOrdering(orderingList){
     if (!this.get('session').get("isAuthenticated")) {
       return new RSVP.Promise((resolve, fail) => {
-        fail();
+        fail("Not logged in.");
       });
     }
     let self = this;

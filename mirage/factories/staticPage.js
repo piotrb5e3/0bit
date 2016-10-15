@@ -9,5 +9,8 @@ export default Factory.extend({
   },
   contents(i) {
     return faker.lorem.paragraphs(i%5 + 1);
+  },
+  order(i) {
+    return i;
   }
 });

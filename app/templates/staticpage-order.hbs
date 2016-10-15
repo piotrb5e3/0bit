@@ -1,15 +1,31 @@
 <div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>
+            Drag to reorder
+        </h4>
+    </div>
     <div class="panel-body">
-        <div>
-            <div>{{errmsg}}</div>
-            <div>{{successmsg}}</div>
-        </div>
-        <div class="navbar navbar-default">
+        <div class="navbar navbar-default navbar-preview">
           {{#ui-sortable class="nav navbar-nav" content=staticpages as |staticpage|}}
-              <li><a class="no-decoration">{{staticpage.title}}</a></li>
+              <li>
+                  <a class="no-decoration">
+                    {{staticpage.title}} <span class="pull-right menu-drag-icon"><i
+                          class="glyphicon glyphicon-move"></i></span>
+                  </a>
+              </li>
           {{/ui-sortable}}
         </div>
-        <button {{action "submitNewOrder"}}>Submit new ordering</button>
+      {{#if (or errmsg successmsg)}}
+          <div class="status-msg">
+            {{#if errmsg}}
+                <span><i class="glyphicon glyphicon-alert"></i> {{errmsg}}</span>
+            {{/if}}
+            {{#if successmsg}}
+                <span><i class="glyphicon glyphicon-ok-sign"></i> {{successmsg}}</span>
+            {{/if}}
+          </div>
+      {{/if}}
+      {{bs-button defaultText="Submit" type="default" action="submitNewOrder"}}
     </div>
 </div>
 {{outlet}}

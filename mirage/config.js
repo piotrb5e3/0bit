@@ -64,7 +64,7 @@ export default function() {
   });
 
   this.put('/static-pages/:id', (schema, request) => {
-    const attrs = JSON.parse(request.requestBody);
+    let attrs = JSON.parse(request.requestBody);
     let page = schema.staticPages.find(request.params.id);
     page.update(attrs);
   });
@@ -86,5 +86,14 @@ export default function() {
 
   this.get('/auth/logout', () => {
     return new Response(200);
+  });
+
+  this.post('/sp-reorder', (schema, request) => {
+    let order = JSON.parse(request.requestBody).order;
+    if(order.length === schema.staticPages.all().length) {
+      return new Response(200, "Success");
+    } else {
+      return new Response(400, "Failed");
+    }
   });
 }
