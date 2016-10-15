@@ -18,6 +18,7 @@ export default function() {
   this.passthrough("/posts/:id");
   this.passthrough("/static-pages");
   this.passthrough("/static-pages/:id");
+  this.passthrough("/sp-reorder");
 
   this.urlPrefix = 'http://localhost:4200';    // make this `http://localhost:8080`, for example, if your API is on a different server
   this.namespace = 'api';    // make this `api`, for example, if your API is namespaced
