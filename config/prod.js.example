@@ -1,6 +1,0 @@
-/* jshint node: true */
-
-module.exports = {
-  API_HOST: 'http://localhost:8000',
-  API_NAMESPACE: 'api'
-};

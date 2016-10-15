@@ -1,9 +1,8 @@
 /* jshint node: true */
-import PROD from 'prod';
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'frontend',
+    modulePrefix: '0bit',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
@@ -47,8 +46,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.API_HOST = PROD.API_HOST;
-    ENV.APP.API_NAMESPACE = PROD.API_NAMESPACE;
+    ENV.APP.API_HOST = "localhost:8000";
+    ENV.APP.API_NAMESPACE = "api";
   }
 
   return ENV;
