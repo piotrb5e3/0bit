@@ -1,4 +1,5 @@
 /* jshint node: true */
+import PROD from 'prod';
 
 module.exports = function(environment) {
   var ENV = {
@@ -46,7 +47,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.API_HOST = PROD.API_HOST;
+    ENV.APP.API_NAMESPACE = PROD.API_NAMESPACE;
   }
 
   return ENV;
