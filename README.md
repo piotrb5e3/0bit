@@ -14,9 +14,14 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `cd frontend`
+* `cd 0bit`
 * `npm install`
 * `bower install`
+
+## Configuration
+* `cd config`
+* `cp environment.js.example environment.js`
+* Adjust configuration
 
 ## Running / Development
 
@@ -35,5 +40,5 @@ You will need the following things properly installed on your computer.
 
 ### Deploying
 
-TO DO
+Deploy as static files.
 
