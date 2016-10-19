@@ -9,6 +9,9 @@ export default function() {
 
     Note: these only affect routes defined *after* them!
   */
+  // Passthrough for coverage testing
+  this.passthrough('/write-coverage');
+
   this.urlPrefix = "http://localhost:8000";
   this.namespace = "api";
   this.passthrough("/auth/login");

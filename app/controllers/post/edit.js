@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
   editedTitle: Ember.computed.oneWay('model.title'),
-  editedContents: Ember.computed.oneWay('model.title'),
+  editedContents: Ember.computed.oneWay('model.contents'),
   actions: {
     submitPost(newpost) {
       if (!this.get('session').get("isAuthenticated")) {
