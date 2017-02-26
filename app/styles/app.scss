@@ -1,14 +1,14 @@
 //Google fonts for text and logos
 @import 'https://fonts.googleapis.com/css?family=Noto+Sans';
 @import 'https://fonts.googleapis.com/css?family=Stalinist+One';
-@import 'https://fonts.googleapis.com/css?family=Audiowide';
+@import 'https://fonts.googleapis.com/css?family=Fira+Sans';
 @import 'https://fonts.googleapis.com/css?family=Artifika';
 
 /*
   Fonts
 */
 
-$font-novelty: 'Audiowide', sans-serif;
+$font-novelty: 'Fira Sans', sans-serif;
 $font-novelty2: 'Stalinist One', sans-serif;
 $font-sans: 'Noto Sans', 'Arial', sans-serif;
 $font-serif: 'Artifika', serif;
@@ -119,15 +119,18 @@ body {
   background-color: $bgDefault;
   border-color: $bgHighlight;
   font-family: $font-novelty;
+  font-size: 22px;
   .navbar-brand {
     color: $colDefault;
     font-family: $font-novelty2;
+    font-size: 22px;
     &:hover, &:focus {
       color: $colHighlight;
     }
   }
   .navbar-text {
     color: $colDefault;
+    font-size: 22px;
   }
   .navbar-nav {
     > li {
