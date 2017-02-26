@@ -30,7 +30,7 @@ test('can submit a new page', function (assert) {
 
   visit('/sp-new');
 
-  andThen(function () {
+  andThen(() => {
     assert.strictEqual(currentURL(), '/sp-new');
     fillIn('#page-edit-title-field', testTitle);
     fillIn('#page-edit-contents-field', testContents);

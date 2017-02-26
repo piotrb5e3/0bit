@@ -13,7 +13,7 @@ export default function() {
   this.passthrough('/write-coverage');
 
   this.urlPrefix = "http://localhost:8000";
-  this.namespace = "api";
+  this.namespace = "";
   this.passthrough("/auth/login");
   this.passthrough("/auth/logout");
   this.passthrough("/auth/refresh");
