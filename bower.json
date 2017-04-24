@@ -9,6 +9,7 @@
     "markdown-it": "^8.0.0",
     "marked": "^0.3.6",
     "bootbox": "^4.4.0",
-    "jquery-ui": "^1.12.1"
+    "jquery-ui": "^1.12.1",
+    "raven-js": "~3.3"
   }
 }
