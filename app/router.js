@@ -36,6 +36,7 @@ Router.map(function () {
   this.route('staticpage-new', {path: '/sp-new'});
   this.route('staticpage-edit', {path: '/sp-edit/:staticpage_id'});
   this.route('staticpage-order', {path: '/sp-order'});
+  this.route('test-sentry');
 });
 
 export default Router;
