@@ -19,8 +19,8 @@ test('editing page changes preview', function (assert) {
     fillIn('#page-edit-title-field', testTitle);
     fillIn('#page-edit-contents-field', testContents);
     andThen(() => {
-      assert.strictEqual(find('.page-display:contains(' + testTitle + ')').length, 1);
-      assert.strictEqual(find('.page-display:contains(' + testContents + ')').length, 1);
+      assert.strictEqual(find(`.page-display:contains(${testTitle})`).length, 1);
+      assert.strictEqual(find(`.page-display:contains(${testContents})`).length, 1);
     });
   });
 });
@@ -38,12 +38,34 @@ test('can submit a new page', function (assert) {
     click('#page-edit-submit');
 
     andThen(() => {
-      visit('/?page=' + testUrl);
+      visit(`/?page=${testUrl}`);
       andThen(() => {
-        assert.strictEqual(currentURL(), '/?page=' + testUrl);
+        assert.strictEqual(currentURL(), `/?page=${testUrl}`);
         assert.strictEqual(find('.page-display').length, 1);
-        assert.strictEqual(find('.page-display:contains(' + testTitle + ')').length, 1);
-        assert.strictEqual(find('.page-display:contains(' + testContents + ')').length, 1);
+        assert.strictEqual(find(`.page-display:contains(${testTitle})`).length, 1);
+        assert.strictEqual(find(`.page-display:contains(${testContents})`).length, 1);
+      });
+    });
+  });
+});
+
+test('does not persist the page on error', function (assert) {
+  tryLogin(testUsername, correctPassword);
+
+  visit('/sp-new');
+
+  andThen(() => {
+    assert.strictEqual(currentURL(), '/sp-new');
+    fillIn('#page-edit-title-field', "FAILME");
+    fillIn('#page-edit-contents-field', testContents);
+    fillIn('#page-edit-url-field', testUrl);
+    click('#page-edit-submit');
+
+    andThen(() => {
+      visit(`/?page=${testUrl}`);
+      andThen(() => {
+        assert.strictEqual(currentURL(), `/?page=${testUrl}`);
+        assert.strictEqual(find('.err-404').length, 1);
       });
     });
   });
@@ -61,12 +83,12 @@ test('can edit an existing page', function (assert) {
     fillIn('#page-edit-contents-field', testContents);
     click('#page-edit-submit');
     andThen(() => {
-      visit('/?page=' + existingPage.url);
+      visit(`/?page=${existingPage.url}`);
       andThen(() => {
-        assert.strictEqual(currentURL(), '/?page=' + existingPage.url);
+        assert.strictEqual(currentURL(), `/?page=${existingPage.url}`);
         assert.strictEqual(find('.page-display').length, 1);
-        assert.strictEqual(find('.page-display:contains(' + testTitle + ')').length, 1);
-        assert.strictEqual(find('.page-display:contains(' + testContents + ')').length, 1);
+        assert.strictEqual(find(`.page-display:contains(${testTitle})`).length, 1);
+        assert.strictEqual(find(`.page-display:contains(${testContents})`).length, 1);
       });
     });
   });

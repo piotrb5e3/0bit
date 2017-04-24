@@ -59,7 +59,11 @@ export default function() {
 
   this.post('/static-pages', (schema, request) => {
     let newPage = JSON.parse(request.requestBody);
-    schema.db.staticPages.insert(newPage);
+    if (newPage.title.indexOf("FAILME") !== -1) {
+      return new Response(400, {error: 'bad title'});
+    } else {
+      return schema.db.staticPages.insert(newPage);
+    }
   });
 
   this.get('/static-pages/:id', (schema, request) => {
