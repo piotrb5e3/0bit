@@ -2,10 +2,12 @@ import Ember from 'ember';
 import ENV from 'frontend/config/environment';
 import RSVP from 'rsvp';
 
+const namespace_block = (ENV.APP.API_NAMESPACE ? `/${ENV.APP.API_NAMESPACE}` : "");
+
 export default Ember.Service.extend({
   ajax: Ember.inject.service(),
   session: Ember.inject.service('session'),
-  orderingPath: ENV.APP.API_HOST + "/" + ENV.APP.API_NAMESPACE + "/sp-reorder",
+  orderingPath: `${ENV.APP.API_HOST}${namespace_block}/sp-reorder`,
 
   sendOrdering(orderingList){
     if (!this.get('session').get("isAuthenticated")) {
