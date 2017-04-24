@@ -8,6 +8,7 @@ You will need the following things properly installed on your computer.
 
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM)
+* [Yarn](http://yarnpkg.com)
 * [Bower](http://bower.io/)
 * [Ember CLI](http://ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
@@ -15,7 +16,7 @@ You will need the following things properly installed on your computer.
 ## Installation
 
 * `cd 0bit`
-* `npm install`
+* `yarn install`
 * `bower install`
 
 ## Configuration
