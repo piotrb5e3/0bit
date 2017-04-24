@@ -1,7 +1,7 @@
-import { moduleFor, test } from 'ember-qunit';
+import {moduleFor, test} from 'ember-qunit';
 import Ember from 'ember';
 
-function cretePostWithTimeAndId(creationTime, id) {
+function createPostWithTimeAndId(creationTime, id) {
   let r = new Ember.Object();
   r.set('id', id);
   r.set('title', "xyz");
@@ -11,21 +11,21 @@ function cretePostWithTimeAndId(creationTime, id) {
 }
 
 moduleFor('controller:posts', 'Unit | Controller | posts', {
+  needs: ['service:metrics']
 });
 
-// Replace this with your real tests.
-test('it exists', function(assert) {
+test('it exists', function (assert) {
   let controller = this.subject();
   assert.ok(controller);
 });
 
-test('posts are sorted properly', function(assert) {
+test('posts are sorted properly', function (assert) {
   let postList = [
-    cretePostWithTimeAndId(new Date(), 0),
-    cretePostWithTimeAndId(1000000, 1),
-    cretePostWithTimeAndId(4000000, 2),
-    cretePostWithTimeAndId(124, 3),
-    cretePostWithTimeAndId(900000000, 4)
+    createPostWithTimeAndId(new Date(), 0),
+    createPostWithTimeAndId(1000000, 1),
+    createPostWithTimeAndId(4000000, 2),
+    createPostWithTimeAndId(124, 3),
+    createPostWithTimeAndId(900000000, 4)
   ];
   let controller = this.subject();
   controller.set('model', postList);
