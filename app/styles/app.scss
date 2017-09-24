@@ -424,3 +424,9 @@ footer .panel-default {
   padding-left: 5px;
   padding-right: 5px;
 }
+
+@import "ember-bootstrap/bootstrap";
+
+.modal-open {
+    overflow: scroll;
+}

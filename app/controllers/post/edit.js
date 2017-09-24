@@ -7,12 +7,10 @@ export default Ember.Controller.extend({
       if (!this.get('session').get("isAuthenticated")) {
         this.transitionToRoute("login");
       } else {
-        let self = this;
         let model = this.get('model');
-        model.save().then(function success() {
-          self.transitionToRoute("posts");
-        }, function error(desc) {
-          alert("Save failed:\n" + desc);
+        model.save().then(() => {
+          this.transitionToRoute("posts");
+        }, () => {
         });
       }
     }

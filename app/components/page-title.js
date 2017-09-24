@@ -12,6 +12,9 @@ export default Ember.Component.extend({
       this.get('page').destroyRecord().then(() => {
         this.get('router').transitionTo('');
       });
+    },
+    noDelete() {
+      this.set('openModal', false);
     }
   }
 });

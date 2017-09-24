@@ -11,8 +11,7 @@ export default Ember.Controller.extend({
         let model = this.get('model');
         model.save().then(() => {
           self.transitionToRoute("posts");
-        }).catch((desc) => {
-          alert("Save failed:\n" + desc);
+        }).catch(() => {
         });
       }
     }

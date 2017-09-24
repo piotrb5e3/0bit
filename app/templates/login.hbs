@@ -1,15 +1,15 @@
 <div class="panel panel-default login-panel">
     <div class="panel-body">
         <p id="login-errors" class="text-centered">{{errorMessage}}</p>
-      {{#bs-form model=this action=(action "authenticate")}}
+      {{#bs-form model=this onSubmit=(action "authenticate") as |form|}}
           <div class="inner-addon left-addon">
               <i class="glyphicon glyphicon-user"></i>
-            {{bs-form-element controlType="text" label="Username" property="identification" invisibleLabel=true
+            {{form.element controlType="text" label="Username" property="identification" invisibleLabel=true
                               autofocus=true placeholder="username" id="login-username"}}
           </div>
           <div class="inner-addon left-addon">
               <i class="glyphicon glyphicon-lock"></i>
-            {{bs-form-element controlType="password" label="Password" property="password" invisibleLabel=true
+            {{form.element controlType="password" label="Password" property="password" invisibleLabel=true
                               placeholder="password" id="login-password"}}
           </div>
         {{bs-button defaultText="Log in" type="primary" buttonType="submit" class="btn-block" id="login-submit"}}

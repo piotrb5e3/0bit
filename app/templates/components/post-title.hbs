@@ -24,12 +24,15 @@
     </div>
 </div>
 {{#if openModal}}
-  {{#bs-modal title="Confirm delete" open=openModal submitAction=(action "yesDelete")
-              body=false footer=false}}
-    {{#bs-modal-body}}
-    Are you sure you want to delete &ldquo;{{post.title}}&rdquo;?
-    {{/bs-modal-body}}
-    {{bs-modal-footer closeTitle="No" submitTitle="Yes"}}
+  {{#bs-modal open=openModal onSubmit=(action "yesDelete")
+              onHide=(action "noDelete") as |modal|}}
+    {{#modal.header}}
+      <h4 class="modal-title"><i class="glyphicon glyphicon-alert"></i> Confirm delete</h4>
+    {{/modal.header}}
+    {{#modal.body}}
+      Are you sure you want to delete &ldquo;{{post.title}}&rdquo;?
+    {{/modal.body}}
+    {{modal.footer closeTitle="No" submitTitle="Yes"}}
   {{/bs-modal}}
 {{/if}}
 {{yield}}

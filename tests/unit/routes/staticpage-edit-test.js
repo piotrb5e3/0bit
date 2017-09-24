@@ -1,7 +1,7 @@
 import {moduleFor, test} from 'ember-qunit';
 
 moduleFor('route:staticpage-edit', 'Unit | Route | staticpage edit', {
-  needs: ['service:metrics']
+  needs: ['service:metrics', 'service:session']
 });
 
 test('it exists', function (assert) {

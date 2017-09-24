@@ -75,6 +75,7 @@ export default function() {
     let page = schema.staticPages.find(request.params.id);
     page.update(attrs);
   });
+  this.del('/static-pages/:id');
 
   this.post('/auth/login', (schema, request) => {
     var pass = request.requestBody;

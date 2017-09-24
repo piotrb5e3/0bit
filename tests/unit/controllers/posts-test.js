@@ -11,7 +11,7 @@ function createPostWithTimeAndId(creationTime, id) {
 }
 
 moduleFor('controller:posts', 'Unit | Controller | posts', {
-  needs: ['service:metrics']
+  needs: ['service:metrics', 'service:session']
 });
 
 test('it exists', function (assert) {

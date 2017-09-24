@@ -1,7 +1,7 @@
 import {moduleFor, test} from 'ember-qunit';
 
 moduleFor('controller:index', 'Unit | Controller | index', {
-  needs: ['service:metrics']
+    needs: ['service:metrics', 'service:session']
 });
 
 test('it exists', function (assert) {

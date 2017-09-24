@@ -1,45 +1,45 @@
 <div class="container">
     <header>
-      {{#bs-navbar id="main-navbar"}}
+      {{#bs-navbar id="main-navbar" as |navbar|}}
           <div class="navbar-header">
-            {{#bs-navbar-toggle}}
+            {{#navbar.toggle}}
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-            {{/bs-navbar-toggle}}
+            {{/navbar.toggle}}
               <a href="/" class="navbar-brand logo">
                 0 Bit
               </a>
           </div>
           <nav>
-            {{#bs-navbar-content}}
-              {{#bs-navbar-nav}}
-                {{#bs-nav-item}}{{#link-to "posts"}}Blog{{/link-to}}{{/bs-nav-item}}
+            {{#navbar.content}}
+              {{#navbar.nav as |nav|}}
+                {{#nav.item}}{{#link-to "posts"}}Blog{{/link-to}}{{/nav.item}}
                 {{#each staticpages as |page|}}
-                  {{#bs-nav-item}}
+                  {{#nav.item}}
                     {{#link-to "index" (query-params page=page.url)}}
                       {{page.title}}
                     {{/link-to}}
-                  {{/bs-nav-item}}
+                  {{/nav.item}}
                 {{/each}}
                 {{#if session.isAuthenticated}}
-                  {{#bs-dropdown tagName="li"}}
-                    {{#bs-dropdown-toggle}}
-                      {{#bs-nav-item}}Manage <span class="caret"></span>{{/bs-nav-item}}
-                    {{/bs-dropdown-toggle}}
-                    {{#bs-dropdown-menu}}
+                  {{#bs-dropdown tagName="li" as |dd|}}
+                    {{#dd.toggle}}
+                      {{#nav.item}}Manage <span class="caret"></span>{{/nav.item}}
+                    {{/dd.toggle}}
+                    {{#dd.menu}}
                         <li>{{#link-to "post.new"}}New post{{/link-to}}</li>
                         <li>{{#link-to "staticpage-new"}}New static page{{/link-to}}</li>
                         <li>{{#link-to "staticpage-order"}}Reorder static pages{{/link-to}}</li>
                         <li><a {{action 'invalidateSession'}}>Logout</a></li>
-                    {{/bs-dropdown-menu}}
+                    {{/dd.menu}}
                   {{/bs-dropdown}}
                 {{else}}
-                  {{#bs-nav-item}}{{#link-to 'login'}}Login{{/link-to}}{{/bs-nav-item}}
+                  {{#nav.item}}{{#link-to 'login'}}Login{{/link-to}}{{/nav.item}}
                 {{/if}}
-              {{/bs-navbar-nav}}
-            {{/bs-navbar-content}}
+              {{/navbar.nav}}
+            {{/navbar.content}}
           </nav>
       {{/bs-navbar}}
     </header>
