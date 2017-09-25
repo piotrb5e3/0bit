@@ -3,6 +3,7 @@
   "dependencies": {
     "raven-js": "~3.3",
     "markdown-it": "^8.4.0",
-    "jquery-ui": "^1.12.1"
+    "jquery-ui": "^1.12.1",
+    "Faker": "^4.1.0"
   }
 }

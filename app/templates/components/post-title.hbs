@@ -7,6 +7,13 @@
                 <small>
                     Posted:
                     <time>{{moment-calendar post.date}}</time>
+                    {{#if shouldDisplayLastEdited data-test-display-last-edited=shouldDisplayLastEdited}}
+                      <br>
+                      Last edited:
+                      <time data-test-last-edited={{post.lastEditedDate}}>
+                        {{moment-calendar post.lastEditedDate }}
+                      </time>
+                    {{/if}}
                 </small>
             </h4>
         </div>
