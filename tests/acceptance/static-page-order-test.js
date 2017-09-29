@@ -21,3 +21,12 @@ test('can visit sp-order when logged in', function(assert) {
     assert.strictEqual(currentURL(), '/sp-order');
   });
 });
+
+test('can visit sp-order when logged in', function(assert) {
+  tryLogin(testUsername, correctPassword);
+
+  visit('/sp-order');
+  andThen(() => {
+    assert.strictEqual(currentURL(), '/sp-order');
+  });
+});

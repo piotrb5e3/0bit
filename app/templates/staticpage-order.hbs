@@ -6,14 +6,16 @@
     </div>
     <div class="panel-body">
         <div class="navbar navbar-default navbar-preview">
-          {{#ui-sortable class="nav navbar-nav" content=staticpages as |staticpage|}}
-              <li>
-                  <a class="no-decoration">
-                    {{staticpage.title}} <span class="pull-right menu-drag-icon"><i
-                          class="glyphicon glyphicon-move"></i></span>
-                  </a>
-              </li>
-          {{/ui-sortable}}
+            {{#ui-sortable class="nav navbar-nav" moved=(action "spMoved") content=staticpages as |staticpage|}}
+                <li>
+                    <a class="no-decoration">
+                        {{staticpage.title}}
+                        <span class="pull-right menu-drag-icon">
+                            <i class="glyphicon glyphicon-move"></i>
+                        </span>
+                    </a>
+                </li>
+            {{/ui-sortable}}
         </div>
       {{#if (or errmsg successmsg)}}
           <div class="status-msg">

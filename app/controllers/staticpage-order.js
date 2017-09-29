@@ -18,6 +18,11 @@ export default Ember.Controller.extend({
     });
   }),
   actions: {
+    spMoved(page, oldIndex, newIndex) {
+      const staticpages = this.get('staticpages');
+      staticpages.removeAt(oldIndex);
+      staticpages.insertAt(newIndex, page);
+    },
     submitNewOrder() {
       let self = this;
       this.get('staticpageOrdering').sendOrdering(this.get('orderlist'))
