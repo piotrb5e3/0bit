@@ -78,9 +78,8 @@ export default function() {
   this.del('/static-pages/:id');
 
   this.post('/auth/login', (schema, request) => {
-    var pass = request.requestBody;
-    pass = pass.substring(pass.indexOf("password="));
-    pass = pass.substring(pass.indexOf("=") + 1);
+    const attrs = JSON.parse(request.requestBody);
+    const pass = attrs.password;
     if (pass.indexOf("ok") !== 0) {
       return new Response(400, {error: 'password or username not correct'});
     } else {

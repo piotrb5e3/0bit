@@ -11,8 +11,7 @@ export default Base.extend({
   refreshPath: `${ENV.APP.API_HOST}${namespace_block}/auth/refresh/`,
 
   restore(data) {
-    return this.get('ajax').request(this.get("refreshPath"), {
-      method: 'POST',
+    return this.get('ajax').post(this.get("refreshPath"), {
       data: {
         token: data.token
       }
@@ -20,8 +19,7 @@ export default Base.extend({
   },
 
   authenticate(login, pass) {
-    return this.get('ajax').request(this.get("loginPath"), {
-      method: 'POST',
+    return this.get('ajax').post(this.get("loginPath"), {
       data: {
         username: login,
         password: pass
@@ -30,8 +28,6 @@ export default Base.extend({
   },
 
   invalidate() {
-    return this.get('ajax').request(this.get("logoutPath"), {
-      method: 'POST'
-    });
+    return this.get('ajax').post(this.get("logoutPath"));
   }
 });
