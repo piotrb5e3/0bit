@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import Base from 'ember-simple-auth/authenticators/base';
-import ENV from 'frontend/config/environment';
+import ENV from 'ComfyMS-frontend/config/environment';
 
 const namespace_block = (ENV.APP.API_NAMESPACE ? `/${ENV.APP.API_NAMESPACE}` : "");
 

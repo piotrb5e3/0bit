@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ENV from 'frontend/config/environment';
+import ENV from 'ComfyMS-frontend/config/environment';
 import RSVP from 'rsvp';
 
 const namespace_block = (ENV.APP.API_NAMESPACE ? `/${ENV.APP.API_NAMESPACE}` : "");

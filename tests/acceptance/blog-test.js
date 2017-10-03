@@ -1,5 +1,5 @@
 import { test } from 'qunit';
-import moduleForAcceptance from 'frontend/tests/helpers/module-for-acceptance';
+import moduleForAcceptance from 'ComfyMS-frontend/tests/helpers/module-for-acceptance';
 
 moduleForAcceptance('Acceptance | blog');
 

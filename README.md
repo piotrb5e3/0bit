@@ -1,6 +1,6 @@
-# Frontend
+# ComfyMS-frontend
 
-Frontend for 0bit.
+Frontend for ComfyMS.
 
 ## Prerequisites
 
@@ -11,11 +11,11 @@ You will need the following things properly installed on your computer.
 * [Yarn](http://yarnpkg.com)
 * [Bower](http://bower.io/)
 * [Ember CLI](http://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
 
 ## Installation
 
-* `cd 0bit`
+* Checkout the repository
+* `cd ComfyMS-frontend`
 * `yarn install`
 * `bower install`
 

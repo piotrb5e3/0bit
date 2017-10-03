@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ComponentRouterInjectorInitializer from 'frontend/initializers/component-router-injector';
+import ComponentRouterInjectorInitializer from 'ComfyMS-frontend/initializers/component-router-injector';
 import { module, test } from 'qunit';
 
 let application;

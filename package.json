@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
+  "name": "ComfyMS-frontend",
   "version": "0.2.1",
-  "description": "Frontend for 0bit",
+  "description": "Frontend for ComfyMS",
   "private": true,
   "directories": {
     "doc": "doc",

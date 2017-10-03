@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "comfyms-frontend",
   "dependencies": {
     "raven-js": "~3.3",
     "markdown-it": "^8.4.0",

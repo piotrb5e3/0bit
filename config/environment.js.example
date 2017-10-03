@@ -3,7 +3,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'frontend',
+    modulePrefix: 'ComfyMS-frontend',
     environment,
     rootURL: '/',
     locationType: 'auto',
