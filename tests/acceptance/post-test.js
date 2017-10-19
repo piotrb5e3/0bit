@@ -4,9 +4,9 @@ import moduleForAcceptance from 'ComfyMS-frontend/tests/helpers/module-for-accep
 moduleForAcceptance('Acceptance | post');
 
 test('Can visit single post page', function(assert) {
-  server.createList('post', 3);
+  server.createList('post', 3, {published: true});
   let testPost = server.create('post');
-  server.createList('post', 10);
+  server.createList('post', 10, {published: true});
   visit('/post/' + testPost.id);
 
   andThen(function() {

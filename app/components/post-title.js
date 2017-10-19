@@ -29,6 +29,20 @@ export default Ember.Component.extend({
     },
     noDelete() {
       this.set('openModal', false);
+    },
+    publish() {
+      this.get('post').publish().then(() => {
+        this.sendAction('onPostChanged');
+      }).catch((err) => {
+        console.log(err);
+      });
+    },
+    unpublish() {
+      this.get('post').unpublish().then(() => {
+        this.sendAction('onPostChanged');
+      }).catch((err) => {
+        console.log(err);
+      });
     }
   }
 });

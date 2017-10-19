@@ -37,6 +37,7 @@ Router.map(function () {
   this.route('staticpage-edit', {path: '/sp-edit/:staticpage_id'});
   this.route('staticpage-order', {path: '/sp-order'});
   this.route('test-sentry');
+  this.route('unpublished-posts');
 });
 
 export default Router;

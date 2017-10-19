@@ -20,5 +20,8 @@ export default Factory.extend({
     } else {
       return null;
     }
+  },
+  published(i) {
+    return i%4 !== 0;
   }
 });

@@ -10,8 +10,9 @@ export default Ember.Controller.extend({
         let self = this;
         let model = this.get('model');
         model.save().then(() => {
-          self.transitionToRoute("posts");
-        }).catch(() => {
+          self.transitionToRoute('unpublished-posts');
+        }).catch((err) => {
+            console.log(err);
         });
       }
     }

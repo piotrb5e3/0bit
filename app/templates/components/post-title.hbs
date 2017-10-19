@@ -2,6 +2,9 @@
     <div class="row">
         <div class="col-xs-8 col-sm-8">
             <h4>
+              {{#if (not post.published)}}
+              <span class="unpublished-tag">[UNPUBLISHED]</span>
+              {{/if}}
               {{post.title}}
                 <br>
                 <small>
@@ -19,12 +22,29 @@
         </div>
         <div class="col-xs-4 col-sm-4 text-right">
           {{#if (and session.isAuthenticated (not isPreview)) }}
+            {{#if post.published }}
+              {{#bs-button onClick=(action "unpublish")
+                           type="primary"
+                           data-test-unpublish-button-for=post.id}}
+                  <i class="glyphicon glyphicon-cloud-download"></i>
+                  {{#bs-tooltip placement="bottom"}}Unpublish{{/bs-tooltip}}
+              {{/bs-button}}
+            {{else}}
+              {{#bs-button onClick=(action "publish")
+                           type="primary"
+                           data-test-publish-button-for=post.id}}
+                  <i class="glyphicon glyphicon-cloud-upload"></i>
+                  {{#bs-tooltip placement="bottom"}}Publish{{/bs-tooltip}}
+              {{/bs-button}}
+            {{/if}}
             {{#link-to "post.edit" post class="btn btn-primary"}}
                 <i class="glyphicon glyphicon-pencil"></i>
+                {{#bs-tooltip placement="bottom"}}Edit{{/bs-tooltip}}
             {{/link-to}}
-              <button {{action "askConfirm"}} class="btn btn-primary">
-                  <i class="glyphicon glyphicon-trash"></i>
-              </button>
+            {{#bs-button onClick=(action "askConfirm") type="primary"}}
+                <i class="glyphicon glyphicon-trash"></i>
+                {{#bs-tooltip placement="bottom"}}Delete{{/bs-tooltip}}
+            {{/bs-button}}
           {{/if}}
         </div>
 

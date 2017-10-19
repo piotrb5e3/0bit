@@ -19,6 +19,8 @@ export default function() {
   this.passthrough("/auth/refresh");
   this.passthrough("/posts");
   this.passthrough("/posts/:id");
+  this.passthrough("/posts/:id/publish");
+  this.passthrough("/posts/:id/unpublish");
   this.passthrough("/static-pages");
   this.passthrough("/static-pages/:id");
   this.passthrough("/sp-reorder");
@@ -38,15 +40,34 @@ export default function() {
 
     http://www.ember-cli-mirage.com/docs/v0.2.x/shorthands/
   */
-  this.get('/posts');
+  this.get('/posts', (schema, request) => {
+    const published = request.queryParams.published;
+    if (published === null || published === undefined) {
+      return schema.posts.all();
+    } else {
+      return schema.db.posts.where({published: published === "true"});
+    }
+  });
   this.get('/posts/:id');
-  this.post('/posts');
+  this.post('/posts', (schema, request) => {
+      const newPost = JSON.parse(request.requestBody);
+      newPost.published = false;
+      return schema.db.posts.insert(newPost);
+  });
   this.put('/posts/:id', (schema, request) => {
     const attrs = JSON.parse(request.requestBody);
     let post = schema.posts.find(request.params.id);
     post.update(attrs);
   });
   this.del('/posts/:id');
+  this.post('/posts/:id/publish', (schema, request) => {
+    const post = schema.posts.find(request.params.id);
+    post.update({published:true});
+  });
+  this.post('/posts/:id/unpublish', (schema, request) => {
+    const post = schema.posts.find(request.params.id);
+    post.update({published:false});
+  });
 
   this.get('/static-pages', (schema, request) => {
     let urlToSearchFor = request.queryParams.url;

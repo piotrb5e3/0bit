@@ -35,7 +35,7 @@ test('can submit a new post', function(assert) {
     fillIn('#post-edit-contents-field', testContents);
     click('#post-edit-submit');
     andThen(() => {
-      assert.strictEqual(currentURL(), '/posts');
+      assert.strictEqual(currentURL(), '/unpublished-posts');
       assert.strictEqual(find('.post-display').length, 1);
       assert.strictEqual(find('.post-display:contains(' + testTitle + ')').length, 1);
       assert.strictEqual(find('.post-display:contains(' + testContents + ')').length, 1);
@@ -44,7 +44,7 @@ test('can submit a new post', function(assert) {
 });
 
 test('can edit an existing post', function(assert) {
-  let existingPost = server.create('post');
+  let existingPost = server.create('post', {published: true});
   tryLogin(testUsername, correctPassword);
 
   visit('/post/' + existingPost.id + '/edit');

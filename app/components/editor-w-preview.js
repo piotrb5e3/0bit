@@ -22,7 +22,8 @@ export default Ember.Component.extend(EmberValidations, {
     return {
       title: this.get('title'),
       contents: this.get('contents'),
-      date: new Date()
+      date: new Date(),
+      published: true,
     };
   })
 });
