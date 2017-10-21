@@ -4,5 +4,10 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 export default Ember.Route.extend(ApplicationRouteMixin, {
   model() {
     return this.get('store').findAll('static-page');
-  }
+  },
+  actions: {
+    staticPagesReordered() {
+      this.refresh();
+    }
+  },
 });
